@@ -1,1 +1,394 @@
-Hola Mundo
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MastoLand - Cliente de Mastodon Nativo para Android</title>
+    <meta name="description" content="MastoLand es un cliente nativo, rápido y premium para Mastodon en Android. Desarrollado con Jetpack Compose, con diseño moderno, sincronización segura con Google Drive y 100% de privacidad.">
+    <meta name="author" content="José Rodolfo De La Torre">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MastoLand - Cliente de Mastodon Nativo para Android">
+    <meta property="og:description" content="Descubre la experiencia nativa definitiva en el Fediverso. MastoLand es fluido, seguro y privado.">
+    <meta property="og:image" content="img/splash_image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="MastoLand - Cliente de Mastodon Nativo para Android">
+    <meta property="twitter:description" content="Descubre la experiencia nativa definitiva en el Fediverso. MastoLand es fluido, seguro y privado.">
+    <meta property="twitter:image" content="img/splash_image.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/ic_launcher_dark.png">
+</head>
+<body class="dark-theme">
+    <!-- Background Glow Elements -->
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <!-- Header & Navigation -->
+    <header class="main-header" id="main-header">
+        <div class="container nav-container">
+            <a href="#" class="logo-area" id="nav-logo">
+                <img src="img/ic_launcher_dark.png" alt="MastoLand Logo" class="logo-img" id="logo-image">
+                <span class="logo-text">MastoLand</span>
+            </a>
+            
+            <nav class="nav-links" id="navigation-menu">
+                <a href="#hero" class="nav-link active" id="link-home">Inicio</a>
+                <a href="#features" class="nav-link" id="link-features">Características</a>
+                <a href="#security" class="nav-link" id="link-security">Seguridad</a>
+                <a href="#download" class="nav-link" id="link-download">Descarga</a>
+                <a href="privacy.html" class="nav-link" id="link-privacy">Privacidad</a>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Color Accent Selector -->
+                <div class="accent-selector" id="accent-selector" title="Color de acento">
+                    <button class="accent-dot active" data-color="indigo" style="background-color: #6364ff;" aria-label="Acento Índigo"></button>
+                    <button class="accent-dot" data-color="blue" style="background-color: #3088d4;" aria-label="Acento Azul"></button>
+                    <button class="accent-dot" data-color="green" style="background-color: #10b981;" aria-label="Acento Verde"></button>
+                    <button class="accent-dot" data-color="amber" style="background-color: #f59e0b;" aria-label="Acento Ámbar"></button>
+                    <button class="accent-dot" data-color="rose" style="background-color: #f43f5e;" aria-label="Acento Rosa"></button>
+                </div>
+                <button class="theme-toggle" id="theme-btn" aria-label="Cambiar tema">
+                    <!-- Sun Icon (shown in dark mode to switch to light) -->
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <!-- Moon Icon (shown in light mode to switch to dark) -->
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <a href="#download" class="btn btn-primary btn-sm" id="nav-download-btn">Descargar</a>
+                <button class="menu-toggle" id="menu-toggle-btn" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="badge" id="hero-badge">Cliente Premium de Mastodon</div>
+                    <h1 class="hero-title">El Fediverso en la palma de tu mano, <span class="gradient-text">rápido y nativo</span>.</h1>
+                    <p class="hero-description">
+                        MastoLand redefine tu experiencia en Mastodon. Una interfaz limpia desarrollada al 100% con Jetpack Compose para Android que ofrece velocidad, personalización y un control absoluto sobre tu privacidad.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#download" class="btn btn-primary" id="hero-primary-cta">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.79 13.79l-3.54-3.54 1.41-1.41 2.13 2.12 4.95-4.95 1.41 1.41-6.36 6.37z"/>
+                            </svg>
+                            Obtener en Google Play
+                        </a>
+                        <a href="#features" class="btn btn-secondary" id="hero-secondary-cta">
+                            Explorar Características
+                        </a>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-num" id="stat-speed">60 FPS</span>
+                            <span class="stat-lbl">Interfaz Fluida</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-num" id="stat-privacy">100%</span>
+                            <span class="stat-lbl">Privado</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-num" id="stat-sdk">API 33</span>
+                            <span class="stat-lbl">Android 13+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-media">
+                    <div class="phones-container">
+                        <!-- Phone 1 (Background): App Screenshot 1 -->
+                        <div class="phone-mockup phone-back" id="mockup-splash">
+                            <div class="phone-speaker"></div>
+                            <div class="phone-screen">
+                                <img src="img/app_screenshot_1.jpg" alt="MastoLand Pantalla 1" class="app-screenshot" id="app-screenshot-1">
+                            </div>
+                            <div class="phone-button"></div>
+                        </div>
+                        <!-- Phone 2 (Foreground): App Screenshot 2 -->
+                        <div class="phone-mockup phone-front" id="mockup-timeline">
+                            <div class="phone-speaker"></div>
+                            <div class="phone-screen">
+                                <img src="img/app_screenshot_2.jpg" alt="MastoLand Pantalla 2" class="app-screenshot" id="app-screenshot-2">
+                            </div>
+                            <div class="phone-button"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section" id="features">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle">Características principales</span>
+                    <h2 class="section-title">Diseñado para la velocidad, <span class="gradient-text">respetando tu privacidad</span>.</h2>
+                    <p class="section-desc">
+                        MastoLand elimina los intermediarios de tu experiencia social. Una conexión directa con el Fediverso bajo una UI que deleita.
+                    </p>
+                </div>
+
+                <div class="features-grid">
+                    <!-- Feature Card 1 -->
+                    <div class="feature-card" id="feature-privacy">
+                        <div class="feature-icon-wrapper">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-card-title">100% Descentralizado y Privado</h3>
+                        <p class="feature-card-desc">
+                            MastoLand no tiene servidores ni bases de datos centrales. Tus tokens de acceso se guardan de forma segura localmente en tu dispositivo. Sin telemetría oculta ni publicidad.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 2 -->
+                    <div class="feature-card" id="feature-design">
+                        <div class="feature-icon-wrapper">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+                                <line x1="12" y1="22" x2="12" y2="12.00"></line>
+                                <line x1="2" y1="8.5" x2="12" y2="12.00"></line>
+                                <line x1="22" y1="8.5" x2="12" y2="12.00"></line>
+                            </svg>
+                        </div>
+                        <h3 class="feature-card-title">Arquitectura Limpia y Modular</h3>
+                        <p class="feature-card-desc">
+                            Construido bajo estrictos patrones de modularización (SRP) en Jetpack Compose. Separación rigurosa de capas de datos y presentación para un rendimiento óptimo e incremental.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 3 -->
+                    <div class="feature-card" id="feature-multimedia">
+                        <div class="feature-icon-wrapper">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21 15 16 10 5 21"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="feature-card-title">Rendimiento Multimedia Inteligente</h3>
+                        <p class="feature-card-desc">
+                            Carga y visualización hiperrápida de fotos, avatares, GIFs y videos optimizada con Coil y una caché local avanzada. Disfruta de la red sin consumir datos innecesarios.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 4 -->
+                    <div class="feature-card" id="feature-accounts">
+                        <div class="feature-icon-wrapper">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-card-title">Gestión Multi-cuenta</h3>
+                        <p class="feature-card-desc">
+                            Administra múltiples perfiles en diferentes instancias de Mastodon simultáneamente con transiciones rápidas e independientes sin perder el hilo de tus notificaciones.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Google Drive Integration / Security Section -->
+        <section class="security-section" id="security">
+            <div class="container security-grid">
+                <div class="security-media">
+                    <div class="interactive-card-gdrive" id="gdrive-interactive">
+                        <div class="gdrive-header">
+                            <img src="img/ic_google_drive.svg" alt="Google Drive Icon" class="gdrive-icon" id="gdrive-xml-logo" style="width: 50px; height: 50px; background-color: rgba(255,255,255,0.1); border-radius: 8px; padding: 5px;">
+                            <div class="gdrive-title-block">
+                                <h4>Google Drive Sync</h4>
+                                <span>Encriptación de Extremo a Extremo</span>
+                            </div>
+                        </div>
+                        <div class="gdrive-status-screen">
+                            <div class="gdrive-backup-item">
+                                <div class="backup-info">
+                                    <span class="file-name">backup_178179050.json.enc</span>
+                                    <span class="file-date">Fecha: Hoy, 07:45 AM</span>
+                                </div>
+                                <span class="badge badge-success">Activo</span>
+                            </div>
+                            <div class="sync-animation-container">
+                                <div class="pulse-ring"></div>
+                                <div class="pulse-ring-outer"></div>
+                                <svg viewBox="0 0 24 24" width="36" height="36" class="sync-arrows">
+                                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="gdrive-footer-info">
+                            <p>🔒 Claves de encriptación generadas localmente mediante Android Keystore.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="security-content">
+                    <div class="badge badge-warning">Seguridad Proactiva</div>
+                    <h2 class="section-title">Respaldos en la nube, <span class="gradient-text">seguros e inmunes a la latencia</span>.</h2>
+                    <p class="security-desc">
+                        Nuestra arquitectura reactiva de sincronización con Google Drive está pensada para que nunca pierdas tus preferencias de forma segura.
+                    </p>
+                    
+                    <ul class="security-list">
+                        <li>
+                            <div class="check-icon">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="3" fill="none">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Sincronización Reactiva Dirigida por Eventos:</strong> Cero consumo en segundo plano. Los respaldos solo se disparan por acciones directas (como cambio de preferencias o adición de cuenta).
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check-icon">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="3" fill="none">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Arquitectura Contra Respuestas Fantasma:</strong> Cada archivo de respaldo utiliza un timestamp dinámico para sortear la consistencia eventual de la API de Drive.
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check-icon">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="3" fill="none">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Filtro Safe-Guard de Payload:</strong> Verificación rigurosa previa a la encriptación. Si falta alguna clave de diseño o preferencia esencial, el respaldo se cancela protegiendo la integridad.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA / Download Section -->
+        <section class="download-section" id="download">
+            <div class="container">
+                <div class="download-wrapper">
+                    <div class="download-inner">
+                        <h2 class="download-title">Únete al Fediverso con MastoLand</h2>
+                        <p class="download-desc">
+                            Descarga la aplicación oficial desde Google Play e inicia sesión de forma segura y directa con tus credenciales de Mastodon.
+                        </p>
+                        
+                        <div class="download-center-container">
+                            <div class="download-box-playstore">
+                                <div class="box-header-playstore">
+                                    <img src="img/ic_launcher_light.png" alt="MastoLand Logo" class="playstore-box-logo">
+                                    <div class="playstore-box-meta">
+                                        <h3>MastoLand para Android</h3>
+                                        <div class="playstore-badge-row" style="display: flex; align-items: center; margin-top: 0.3rem;">
+                                            <svg viewBox="0 0 48 48" width="18" height="18" style="margin-right: 6px; flex-shrink: 0;">
+                                                <path fill="#00E676" d="M8 4.4v39.2L27.6 24z"/>
+                                                <path fill="#FF1744" d="M37.2 14.8L8 4.4L27.6 24z"/>
+                                                <path fill="#FFD600" d="M8 43.6l29.2-10.4L27.6 24z"/>
+                                                <path fill="#00B0FF" d="M37.2 14.8L27.6 24l9.6 9.2c1.8-1 3.2-2.8 3.2-4.8v-8.8c0-2-1.4-3.8-3.2-4.8z"/>
+                                            </svg>
+                                            <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Google Play Store</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="playstore-box-desc">
+                                    Instalación directa y segura desde la tienda oficial de Google. Compatible con Android 13.0 (API 33) o superior. Recibe actualizaciones automáticas de seguridad y rendimiento de forma inmediata.
+                                </p>
+                                <a href="https://play.google.com/store" target="_blank" rel="noopener" class="btn btn-white w-full btn-playstore-cta" id="btn-download-playstore">
+                                    <!-- Google Play Triangle Icon -->
+                                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" style="margin-right: 8px;">
+                                        <path d="M5 3.004a1 1 0 0 1 .472.12l14 8a1 1 0 0 1 0 1.752l-14 8A1 1 0 0 1 4 20.004v-16a1 1 0 0 1 1-1z"/>
+                                    </svg>
+                                    Disponible en Google Play
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo-area" id="footer-logo">
+                    <img src="img/ic_launcher_dark.png" alt="MastoLand Logo" class="logo-img">
+                    <span class="logo-text">MastoLand</span>
+                </a>
+                <p class="brand-desc">
+                    Un cliente nativo de Mastodon para Android, rápido, fluido y modular. Desarrollado pensando en el usuario y su privacidad.
+                </p>
+            </div>
+            
+            <div class="footer-links-group">
+                <div class="footer-links-col">
+                    <h4>Navegación</h4>
+                    <a href="#hero">Inicio</a>
+                    <a href="#features">Características</a>
+                    <a href="#security">Seguridad</a>
+                    <a href="#download">Descarga</a>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Política de Privacidad</a>
+                    <a href="privacy.html#data-deletion">Eliminación de Datos</a>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Contacto</h4>
+                    <a href="mailto:rury76@gmail.com">Soporte Técnico</a>
+                    <a href="https://mastodon.social" target="_blank" rel="noopener">Fediverso</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 MastoLand. Desarrollado por José Rodolfo De La Torre. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Core Script -->
+    <script src="js/app.js"></script>
+</body>
+</html>
