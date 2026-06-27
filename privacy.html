@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Privacidad y Eliminación de Datos - MastoLand</title>
+    <link rel="icon" type="image/png" href="img/ic_launcher_dark.png">
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -64,60 +65,199 @@
             margin: 20px 0;
             border-radius: 0 4px 4px 0;
         }
+        
+        /* Privacy Header Styles */
+        .privacy-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e1e4e8;
+        }
+        .back-home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #555555;
+            text-decoration: none;
+            font-size: 10pt;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid #e1e4e8;
+            background-color: #ffffff;
+            transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+        }
+        .back-home-btn:hover {
+            background-color: #f6f8fa;
+            border-color: #007acc;
+            color: #007acc;
+        }
+        .back-home-btn svg {
+            transition: transform 0.2s;
+        }
+        .back-home-btn:hover svg {
+            transform: translateX(-3px);
+        }
+
+        /* Language Selector Styles */
+        .language-selector {
+            position: relative;
+        }
+        .lang-btn {
+            background-color: #ffffff;
+            border: 1px solid #e1e4e8;
+            color: #333333;
+            padding: 0 16px;
+            height: 38px;
+            border-radius: 19px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .lang-btn:hover {
+            background-color: #f6f8fa;
+            border-color: #007acc;
+        }
+        .lang-btn svg {
+            color: #555555;
+        }
+        .lang-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background-color: #ffffff;
+            border: 1px solid #e1e4e8;
+            border-radius: 12px;
+            padding: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            min-width: 120px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+            z-index: 1000;
+        }
+        .lang-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .lang-option {
+            background: none;
+            border: none;
+            color: #555555;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-align: left;
+            transition: background-color 0.2s, color 0.2s;
+            width: 100%;
+        }
+        .lang-option:hover {
+            background-color: #f6f8fa;
+            color: #007acc;
+        }
+        .lang-option.active {
+            background-color: #007acc;
+            color: #ffffff;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Política de Privacidad y Eliminación de Datos</h1>
-    
-    <div class="meta-info">
-        <p><strong>Aplicación:</strong> MastoLand</p>
-        <p><strong>Última actualización:</strong> Junio de 2026</p>
-        <p><strong>Desarrollador:</strong> José Rodolfo De La Torre</p>
-        <p><strong>Contacto:</strong> rury76@gmail.com</p>
+    <div class="privacy-header">
+        <a href="index.html" class="back-home-btn" id="back-home-btn">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span id="back-home-btn-text">Regresar al inicio</span>
+        </a>
+        
+        <!-- Language Selector -->
+        <div class="language-selector" id="language-selector">
+            <button class="lang-btn" id="lang-btn" aria-label="Seleccionar idioma">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                <span id="current-lang-code">ES</span>
+            </button>
+            <div class="lang-dropdown" id="lang-dropdown">
+                <button data-lang="es" class="lang-option active">Español</button>
+                <button data-lang="en" class="lang-option">English</button>
+                <button data-lang="de" class="lang-option">Deutsch</button>
+                <button data-lang="fr" class="lang-option">Français</button>
+                <button data-lang="ja" class="lang-option">日本語</button>
+                <button data-lang="pt" class="lang-option">Português</button>
+            </div>
+        </div>
     </div>
 
-    <p>En <strong>MastoLand</strong>, nos tomamos muy en serio la privacidad de nuestros usuarios. Esta Política de Privacidad explica de manera transparente cómo se manejan, transmiten y eliminan los datos en nuestra aplicación móvil (Android) y de escritorio (macOS).</p>
-
-    <h2>1. Naturaleza del Servicio (Aplicación de Terceros)</h2>
-    <p>MastoLand es un cliente nativo de código abierto para la red social descentralizada y federada <strong>Mastodon</strong>. MastoLand <strong>no cuenta con servidores propios, bases de datos centralizadas ni sistemas de almacenamiento en la nube administrados por el desarrollador</strong>.</p>
-    <p>Toda la infraestructura de la red social (registro de usuarios, almacenamiento de publicaciones, imágenes, videos y moderación de contenido) depende exclusivamente de la instancia o servidor del Fediverso en el que el usuario haya decidido registrarse de forma independiente (por ejemplo, <em>mastodon.social</em> u otros servidores públicos).</p>
-
-    <h2>2. Recopilación y Uso de Datos</h2>
+    <h1 id="title-heading">Política de Privacidad y Eliminación de Datos</h1>
     
-    <h3>A. Datos de Autenticación</h3>
-    <p>Para acceder a la red, la aplicación utiliza el protocolo seguro <strong>OAuth</strong>. El usuario introduce sus credenciales directamente en la pasarela web de su respectiva instancia. MastoLand solo recibe y almacena de forma local y segura un token de acceso en el dispositivo para mantener la sesión abierta. <strong>Las contraseñas nunca son vistas, procesadas ni almacenadas por el desarrollador.</strong></p>
+    <div class="meta-info">
+        <p id="meta-app"><strong>Aplicación:</strong> MastoLand</p>
+        <p id="meta-date"><strong>Última actualización:</strong> Junio de 2026</p>
+        <p id="meta-author"><strong>Desarrollador:</strong> José Rodolfo De La Torre</p>
+        <p id="meta-contact"><strong>Contacto:</strong> rury76@gmail.com</p>
+    </div>
 
-    <h3>B. Contenido Multimedia (Fotos y Videos)</h3>
+    <p id="intro-p">En <strong>MastoLand</strong>, nos tomamos muy en serio la privacidad de nuestros usuarios. Esta Política de Privacidad explica de manera transparente cómo se manejan, transmiten y eliminan los datos en nuestra aplicación móvil (Android) y de escritorio (macOS).</p>
+
+    <h2 id="sec-1-title">1. Naturaleza del Servicio (Aplicación de Terceros)</h2>
+    <p id="sec-1-p1">MastoLand es un cliente nativo de código abierto para la red social descentralizada y federada <strong>Mastodon</strong>. MastoLand <strong>no cuenta con servidores propios, bases de datos centralizadas ni sistemas de almacenamiento en la nube administrados por el desarrollador</strong>.</p>
+    <p id="sec-1-p2">Toda la infraestructura de la red social (registro de usuarios, almacenamiento de publicaciones, imágenes, videos y moderación de contenido) depende exclusivamente de la instancia o servidor del Fediverso en el que el usuario haya decidido registrarse de forma independiente (por ejemplo, <em>mastodon.social</em> u otros servidores públicos).</p>
+
+    <h2 id="sec-2-title">2. Recopilación y Uso de Datos</h2>
+    
+    <h3 id="sec-2a-title">A. Datos de Autenticación</h3>
+    <p id="sec-2a-p">Para acceder a la red, la aplicación utiliza el protocolo seguro <strong>OAuth</strong>. El usuario introduce sus credenciales directamente en la pasarela web de su respectiva instancia. MastoLand solo recibe y almacena de forma local y segura un token de acceso en el dispositivo para mantener la sesión abierta. <strong>Las contraseñas nunca son vistas, procesadas ni almacenadas por el desarrollador.</strong></p>
+
+    <h3 id="sec-2b-title">B. Contenido Multimedia (Fotos y Videos)</h3>
     <ul>
-        <li><strong>Recopilación en tránsito:</strong> Cuando el usuario decide redactar una nueva publicación o responder a un hilo e incluye imágenes o videos de su galería, MastoLand procesa dichos archivos con el único propósito de transmitirlos mediante conexiones seguras (HTTPS) a la API del servidor de Mastodon del usuario.</li>
-        <li><strong>Finalidad:</strong> Estos archivos se recopilan exclusivamente para la <strong>Funcionalidad de la app</strong> (permitir al usuario compartir contenido multimedia en su Timeline). No se utilizan para publicidad, analíticas ni personalización de perfiles.</li>
+        <li id="sec-2b-li1"><strong>Recopilación en tránsito:</strong> Cuando el usuario decide redactar una nueva publicación o responder a un hilo e incluye imágenes o videos de su galería, MastoLand procesa dichos archivos con el único propósito de transmitirlos mediante conexiones seguras (HTTPS) a la API del servidor de Mastodon del usuario.</li>
+        <li id="sec-2b-li2"><strong>Finalidad:</strong> Estos archivos se recopilan exclusivamente para la <strong>Funcionalidad de la app</strong> (permitir al usuario compartir contenido multimedia en su Timeline). No se utilizan para publicidad, analíticas ni personalización de perfiles.</li>
     </ul>
 
-    <h2>3. Seguridad de los Datos</h2>
-    <p>Todos los datos transmitidos por MastoLand hacia el Fediverso se encriptan obligatoriamente en tránsito utilizando el protocolo de seguridad <strong>HTTPS (TLS)</strong>, impidiendo que terceros puedan interceptar la información del usuario o sus archivos multimedia.</p>
+    <h2 id="sec-3-title">3. Seguridad de los Datos</h2>
+    <p id="sec-3-p">Todos los datos transmitidos por MastoLand hacia el Fediverso se encriptan obligatoriamente en tránsito utilizando el protocolo de seguridad <strong>HTTPS (TLS)</strong>, impidiendo que terceros puedan interceptar la información del usuario o sus archivos multimedia.</p>
 
-    <h2 id="data-deletion">4. Política de Eliminación de Datos (Data Deletion)</h2>
-    <p>En cumplimiento con las directrices de seguridad de las tiendas de aplicaciones Google Play y Apple App Store, garantizamos que los usuarios tienen el control absoluto sobre la eliminación de sus datos a través de dos mecanismos:</p>
+    <h2 id="sec-4-title">4. Política de Eliminación de Datos (Data Deletion)</h2>
+    <p id="sec-4-intro-p">En cumplimiento con las directrices de seguridad de las tiendas de aplicaciones Google Play y Apple App Store, garantizamos que los usuarios tienen el control absoluto sobre la eliminación de sus datos a través de dos mecanismos:</p>
 
-    <h3>A. Eliminación de Datos Locales (En el Dispositivo)</h3>
-    <p>El usuario puede solicitar la eliminación inmediata de todos los datos almacenados localmente por la aplicación (tokens de acceso, cachés temporales y base de datos local de Room) realizando cualquiera de las siguientes acciones:</p>
+    <h3 id="sec-4a-title">A. Eliminación de Datos Locales (En el Dispositivo)</h3>
+    <p id="sec-4a-p">El usuario puede solicitar la eliminación inmediata de todos los datos almacenados localmente por la aplicación (tokens de acceso, cachés temporales y base de datos local de Room) realizando cualquiera de las siguientes acciones:</p>
     <ul>
-        <li>Ir al menú de configuración dentro de MastoLand y pulsar en <strong>"Cerrar Sesión"</strong>.</li>
-        <li>Desinstalar la aplicación del dispositivo o borrar los datos de almacenamiento desde los Ajustes del Sistema Operativo (Android/macOS).</li>
+        <li id="sec-4a-li1">Ir al menú de configuración dentro de MastoLand y pulsar en <strong>"Cerrar Sesión"</strong>.</li>
+        <li id="sec-4a-li2">Desinstalar la aplicación del dispositivo o borrar los datos de almacenamiento desde los Ajustes del Sistema Operativo (Android/macOS).</li>
     </ul>
 
-    <h3>B. Eliminación de Datos en la Red (En el Servidor o Instancia)</h3>
-    <p>Dado que las publicaciones, imágenes, videos e información del perfil residen en los servidores descentralizados de Mastodon y no bajo el control directo de MastoLand:</p>
+    <h3 id="sec-4b-title">B. Eliminación de Datos en la Red (En el Servidor o Instancia)</h3>
+    <p id="sec-4b-p">Dado que las publicaciones, imágenes, videos e información del perfil residen en los servidores descentralizados de Mastodon y no bajo el control directo de MastoLand:</p>
     <ul>
-        <li>El usuario puede borrar publicaciones individuales de forma directa desde la interfaz de la aplicación, lo que disparará de inmediato la orden de eliminación a la API del servidor federado.</li>
-        <li>Para una eliminación definitiva de la cuenta y de todo el historial multimedia asociado en el Fediverso, el usuario debe acceder de forma externa al panel web de la instancia de Mastodon donde se registró originalmente y solicitar la baja definitiva desde la configuración de su perfil.</li>
+        <li id="sec-4b-li1">El usuario puede borrar publicaciones individuales de forma directa desde la interfaz de la aplicación, lo que disparará de inmediato la orden de eliminación a la API del servidor federado.</li>
+        <li id="sec-4b-li2">Para una eliminación definitiva de la cuenta y de todo el historial multimedia asociado en el Fediverso, el usuario debe acceder de forma externa al panel web de la instancia de Mastodon donde se registró originalmente y solicitar la baja definitiva desde la configuración de su perfil.</li>
     </ul>
 
-    <h2>5. Cambios a esta Política</h2>
-    <p>Nos reservamos el derecho de actualizar esta política para reflejar cambios tecnológicos o normativos en las tiendas de aplicaciones. Se recomienda revisar esta página periódicamente.</p>
+    <h2 id="sec-5-title">5. Cambios a esta Política</h2>
+    <p id="sec-5-p">Nos reservamos el derecho de actualizar esta política para reflejar cambios tecnológicos o normativos en las tiendas de aplicaciones. Se recomienda revisar esta página periódicamente.</p>
 </div>
 
+<!-- Core Privacy Script -->
+<script src="js/privacy.js"></script>
 </body>
 </html>
